@@ -1,6 +1,6 @@
-'From Cuis 5.0 of 7 November 2016 [latest update: #3430] on 13 September 2018 at 6:35:17 am'!
+'From Cuis 5.0 of 7 November 2016 [latest update: #3430] on 13 September 2018 at 6:41:53 am'!
 'Description Please enter a description for this package'!
-!provides: 'SemanticAssertions' 1 1!
+!provides: 'SemanticAssertions' 1 2!
 SystemOrganization addCategory: #SemanticAssertions!
 
 
@@ -51,7 +51,7 @@ test04assertABlockChangesAnAssertionFromAnAmountToAnotherAmount
 	
 	self assert: [ aCollection add: 2 ] changes: [ aCollection size ] from: 1 to: 2! !
 
-!SemanticAssertions methodsFor: 'assertions' stamp: 'GC 9/13/2018 05:57:14'!
+!TestCase methodsFor: '*SemanticAssertions' stamp: 'GC 9/13/2018 06:40:38'!
 assert: anAction changes: aCondition 
 	|after before|
 	
@@ -61,7 +61,7 @@ assert: anAction changes: aCondition
 	
 	self deny: after = before! !
 
-!SemanticAssertions methodsFor: 'assertions' stamp: 'GC 9/13/2018 06:29:57'!
+!TestCase methodsFor: '*SemanticAssertions' stamp: 'GC 9/13/2018 06:41:06'!
 assert: anAction changes: aCondition by: anAmount 
 	|after before|
 	
@@ -71,7 +71,7 @@ assert: anAction changes: aCondition by: anAmount
 	
 	self assert: after equals: before + anAmount! !
 
-!SemanticAssertions methodsFor: 'assertions' stamp: 'GC 9/13/2018 06:34:38'!
+!TestCase methodsFor: '*SemanticAssertions' stamp: 'GC 9/13/2018 06:41:16'!
 assert: anAction changes: aCondition from: anInitialAmount to: aFinalAmount 
 	|after before|
 	
@@ -82,7 +82,7 @@ assert: anAction changes: aCondition from: anInitialAmount to: aFinalAmount
 	self assert: before equals: anInitialAmount.
 	self assert: after equals: aFinalAmount! !
 
-!SemanticAssertions methodsFor: 'assertions' stamp: 'GC 9/13/2018 06:00:41'!
+!TestCase methodsFor: '*SemanticAssertions' stamp: 'GC 9/13/2018 06:41:22'!
 assert: anAction doesNotChange: aCondition 
 	|after before|
 	

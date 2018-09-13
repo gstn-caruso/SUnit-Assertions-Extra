@@ -2,6 +2,10 @@
 
 These are assertions (or matchers) for SUnit written for cuis Smalltalk inspired by some of the marchers of RSpec.
 
+## How to use it
+
+Just import it, these matchers extends TestCase.
+
 ## Current list of assertions
 
 ### An action changes something
@@ -20,4 +24,3 @@ And the parametric versions:
 aCollection := OrderedCollection with: 1.
 self assert: [ aCollection add: 2 ] changes: [ aCollection size ] from: 1 to: 2
 ```
-
