@@ -1,6 +1,6 @@
-'From Cuis 5.0 of 7 November 2016 [latest update: #3430] on 13 September 2018 at 6:02:52 am'!
+'From Cuis 5.0 of 7 November 2016 [latest update: #3430] on 13 September 2018 at 6:35:17 am'!
 'Description Please enter a description for this package'!
-!provides: 'SemanticAssertions' 1 0!
+!provides: 'SemanticAssertions' 1 1!
 SystemOrganization addCategory: #SemanticAssertions!
 
 
@@ -33,6 +33,24 @@ test02assertABlockChangesAnAssertion
 	
 	self assert: [ aCollection add: 1 ] changes: [ aCollection size ]! !
 
+!SemanticAssertions methodsFor: 'testing' stamp: 'GC 9/13/2018 06:28:34'!
+test03assertABlockChangesAnAssertionByAnAmount
+
+	|aCollection|
+
+	aCollection := OrderedCollection new.
+	
+	self assert: [ aCollection add: 1; add: 2 ] changes: [ aCollection size ] by: 2! !
+
+!SemanticAssertions methodsFor: 'testing' stamp: 'GC 9/13/2018 06:34:47'!
+test04assertABlockChangesAnAssertionFromAnAmountToAnotherAmount
+
+	|aCollection|
+
+	aCollection := OrderedCollection with: 1.
+	
+	self assert: [ aCollection add: 2 ] changes: [ aCollection size ] from: 1 to: 2! !
+
 !SemanticAssertions methodsFor: 'assertions' stamp: 'GC 9/13/2018 05:57:14'!
 assert: anAction changes: aCondition 
 	|after before|
@@ -42,6 +60,27 @@ assert: anAction changes: aCondition
 	after := aCondition value.
 	
 	self deny: after = before! !
+
+!SemanticAssertions methodsFor: 'assertions' stamp: 'GC 9/13/2018 06:29:57'!
+assert: anAction changes: aCondition by: anAmount 
+	|after before|
+	
+	before := aCondition value.
+	anAction value.
+	after := aCondition value.
+	
+	self assert: after equals: before + anAmount! !
+
+!SemanticAssertions methodsFor: 'assertions' stamp: 'GC 9/13/2018 06:34:38'!
+assert: anAction changes: aCondition from: anInitialAmount to: aFinalAmount 
+	|after before|
+	
+	before := aCondition value.
+	anAction value.
+	after := aCondition value.
+	
+	self assert: before equals: anInitialAmount.
+	self assert: after equals: aFinalAmount! !
 
 !SemanticAssertions methodsFor: 'assertions' stamp: 'GC 9/13/2018 06:00:41'!
 assert: anAction doesNotChange: aCondition 

@@ -12,3 +12,12 @@ Also the opposite is included:
 
 `self assert: [ aCollection sum ] doesNotChange: [ aCollection size ]`
 
+And the parametric versions:
+
+`self assert: [ aCollection add: 1; add: 2 ] changes: [ aCollection size ] by: 2`
+
+```
+aCollection := OrderedCollection with: 1.
+self assert: [ aCollection add: 2 ] changes: [ aCollection size ] from: 1 to: 2
+```
+
