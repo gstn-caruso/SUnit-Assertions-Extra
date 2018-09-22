@@ -31,5 +31,7 @@ self assert: [ aCollection add: 2 ] changes: [ aCollection size ] from: 1 to: 2
 `self assert: originalNumber isNearTo: newValue withPrecision: precision`
 
 Also you have the negative assertions:
+
 `self assert: originalNumber isNotNearTo: newValue`
+
 `self assert: originalNumber isNotNearTo: newValue withPrecision: precision`
