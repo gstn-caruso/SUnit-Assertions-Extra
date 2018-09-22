@@ -25,7 +25,7 @@ aCollection := OrderedCollection with: 1.
 self assert: [ aCollection add: 2 ] changes: [ aCollection size ] from: 1 to: 2
 ```
 
-## A float number is equal to another float number with a precision value
+### A float number is equal to another float number with a precision value
 `self assert: (0.3) isNearTo: (0.1 + 0.2)`
 
 `self assert: originalNumber isNearTo: newValue withPrecision: precision`
