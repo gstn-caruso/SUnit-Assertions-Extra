@@ -38,6 +38,6 @@ Also you have the negative assertions:
 
 ### A collection includes an element
 
-`self assert: #() includes: 1
+`self assert: #() includes: 1`
 
 Will raise a nice error message
