@@ -1,5 +1,6 @@
 # changes file
 *.changes
+.DS_Store
 
 # system image
 *.image
