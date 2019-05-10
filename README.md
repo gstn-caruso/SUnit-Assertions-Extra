@@ -35,3 +35,9 @@ Also you have the negative assertions:
 `self assert: originalNumber isNotNearTo: newValue`
 
 `self assert: originalNumber isNotNearTo: newValue withPrecision: precision`
+
+### A collection includes an element
+
+`self assert: #() includes: 1
+
+Will raise a nice error message
