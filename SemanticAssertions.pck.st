@@ -1,21 +1,21 @@
-'From Cuis 5.0 of 7 November 2016 [latest update: #3739] on 10 May 2019 at 2:27:16 am'!
+'From Cuis 5.0 of 7 November 2016 [latest update: #3741] on 13 May 2019 at 12:40:33 am'!
 'Description Please enter a description for this package'!
-!provides: 'SemanticAssertions' 1 4!
-SystemOrganization addCategory: #SemanticAssertions!
+!provides: 'SemanticAssertions' 1 5!
+SystemOrganization addCategory: #'SemanticAssertions-Test'!
 
 
-!classDefinition: #SemanticAssertions category: #SemanticAssertions!
-TestCase subclass: #SemanticAssertions
+!classDefinition: #SemanticAssertionsTest category: #'SemanticAssertions-Test'!
+TestCase subclass: #SemanticAssertionsTest
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
-	category: 'SemanticAssertions'!
-!classDefinition: 'SemanticAssertions class' category: #SemanticAssertions!
-SemanticAssertions class
+	category: 'SemanticAssertions-Test'!
+!classDefinition: 'SemanticAssertionsTest class' category: #'SemanticAssertions-Test'!
+SemanticAssertionsTest class
 	instanceVariableNames: ''!
 
 
-!SemanticAssertions methodsFor: 'changes' stamp: 'GC 9/13/2018 05:58:35'!
+!SemanticAssertionsTest methodsFor: 'changes' stamp: 'GC 9/13/2018 05:58:35'!
 test01assertABlockDoesNotChangesAnAssertion
 
 	|aCollection|
@@ -24,7 +24,7 @@ test01assertABlockDoesNotChangesAnAssertion
 	
 	self assert: [ aCollection sum ] doesNotChange: [ aCollection size ]! !
 
-!SemanticAssertions methodsFor: 'changes' stamp: 'GC 9/13/2018 05:59:29'!
+!SemanticAssertionsTest methodsFor: 'changes' stamp: 'GC 9/13/2018 05:59:29'!
 test02assertABlockChangesAnAssertion
 
 	|aCollection|
@@ -33,7 +33,7 @@ test02assertABlockChangesAnAssertion
 	
 	self assert: [ aCollection add: 1 ] changes: [ aCollection size ]! !
 
-!SemanticAssertions methodsFor: 'changes' stamp: 'GC 9/13/2018 06:28:34'!
+!SemanticAssertionsTest methodsFor: 'changes' stamp: 'GC 9/13/2018 06:28:34'!
 test03assertABlockChangesAnAssertionByAnAmount
 
 	|aCollection|
@@ -42,7 +42,7 @@ test03assertABlockChangesAnAssertionByAnAmount
 	
 	self assert: [ aCollection add: 1; add: 2 ] changes: [ aCollection size ] by: 2! !
 
-!SemanticAssertions methodsFor: 'changes' stamp: 'GC 9/13/2018 06:34:47'!
+!SemanticAssertionsTest methodsFor: 'changes' stamp: 'GC 9/13/2018 06:34:47'!
 test04assertABlockChangesAnAssertionFromAnAmountToAnotherAmount
 
 	|aCollection|
@@ -51,17 +51,17 @@ test04assertABlockChangesAnAssertionFromAnAmountToAnotherAmount
 	
 	self assert: [ aCollection add: 2 ] changes: [ aCollection size ] from: 1 to: 2! !
 
-!SemanticAssertions methodsFor: 'assert is near to' stamp: 'GC 9/22/2018 13:44:29'!
+!SemanticAssertionsTest methodsFor: 'assert is near to' stamp: 'GC 9/22/2018 13:44:29'!
 test05assertAFloatIsNearToAnotherFloatWithSameValue
 	
 	self assert: 1.5 isNearTo: 1.5! !
 
-!SemanticAssertions methodsFor: 'assert is near to' stamp: 'GC 9/22/2018 15:23:59'!
+!SemanticAssertionsTest methodsFor: 'assert is near to' stamp: 'GC 9/22/2018 15:23:59'!
 test06assertAFloatIsNearToAnotherFloatWithSameValueAsResultOfASum
 	
 	self assert: (0.3) isNearTo: (0.1 + 0.2)! !
 
-!SemanticAssertions methodsFor: 'assert is near to' stamp: 'GC 9/22/2018 15:49:09'!
+!SemanticAssertionsTest methodsFor: 'assert is near to' stamp: 'GC 9/22/2018 15:49:09'!
 test07assertAFloatIsNearToAnotherFloatWithSameValuePlusANumberSmallerThanAGivenPrecision
 	
 	|precision newValue originalNumber |
@@ -72,7 +72,7 @@ test07assertAFloatIsNearToAnotherFloatWithSameValuePlusANumberSmallerThanAGivenP
 	
 	self assert: originalNumber isNearTo: newValue withPrecision: precision! !
 
-!SemanticAssertions methodsFor: 'assert is near to' stamp: 'GC 9/22/2018 15:51:58'!
+!SemanticAssertionsTest methodsFor: 'assert is near to' stamp: 'GC 9/22/2018 15:51:58'!
 test08assertAFloatIsNotNearToAnotherFloatWithSameValuePlusANumberGreaterThanAGivenPrecision
 	
 	|precision newValue originalNumber |
@@ -83,7 +83,7 @@ test08assertAFloatIsNotNearToAnotherFloatWithSameValuePlusANumberGreaterThanAGiv
 	
 	self assert: originalNumber isNotNearTo: newValue withPrecision: precision! !
 
-!SemanticAssertions methodsFor: 'includes' stamp: 'GC 5/10/2019 02:17:26'!
+!SemanticAssertionsTest methodsFor: 'includes' stamp: 'GC 5/10/2019 02:17:26'!
 test09assertEmptyCollectionDoesNotIncludeAnyElement
 	
 	| collection anElement |
@@ -95,7 +95,7 @@ test09assertEmptyCollectionDoesNotIncludeAnyElement
 		 raise: TestFailure 
 		 withMessageText: collection asString, ' does not include ', anElement asString! !
 
-!SemanticAssertions methodsFor: 'includes' stamp: 'GC 5/10/2019 02:23:17'!
+!SemanticAssertionsTest methodsFor: 'includes' stamp: 'GC 5/10/2019 02:23:17'!
 test10assertEmptyCollectionDoesNotIncludeNil
 	
 	| collection anElement |
@@ -107,7 +107,7 @@ test10assertEmptyCollectionDoesNotIncludeNil
 		 raise: TestFailure 
 		 withMessageText: collection asString, ' does not include ', anElement asString! !
 
-!SemanticAssertions methodsFor: 'includes' stamp: 'GC 5/10/2019 02:24:08'!
+!SemanticAssertionsTest methodsFor: 'includes' stamp: 'GC 5/10/2019 02:24:08'!
 test11assertIncludesPassWhenTheCollectionContainsTheExpectedElement
 	
 	| collection anElement |
