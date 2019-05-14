@@ -1,4 +1,4 @@
-## Semantic assertions
+## SUnit extra assertions
 
 These are assertions (or matchers) for SUnit written for cuis Smalltalk inspired by some of the marchers of RSpec.
 
